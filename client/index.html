@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codenames</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div id="app">
+        <div id="topbar">
+            <h1>
+                <a href="index.html">codenames</a>
+            </h1>
+        </div>
+        
+        <div id="game">
+            <div id="game-status">
+                <div id="score">
+                    7-7
+                </div>
+                <div id="status">
+                    blue's turn
+                </div>
+                <div id="endturn">
+                    <button id="turnbutton">End Turn</button>
+                </div>
+            </div>
+
+            <div class="board">
+                <div id='cell1' class="cell">word</div>
+                <div id='cell2' class="cell">word</div>
+                <div id='cell3' class="cell">word</div>
+                <div id='cell4' class="cell">word</div>
+                <div id='cell5' class="cell">word</div>
+                <div id='cell6' class="cell">word</div>
+                <div id='cell7' class="cell">word</div>
+                <div id='cell8' class="cell">word</div>
+                <div id='cell9' class="cell">word</div>
+                <div id='cell10' class="cell">word</div>
+                <div id='cell11' class="cell">word</div>
+                <div id='cell12' class="cell">word</div>
+                <div id='cell13' class="cell">word</div>
+                <div id='cell14' class="cell">word</div>
+                <div id='cell15' class="cell">word</div>
+                <div id='cell16' class="cell">word</div>
+                <div id='cell17' class="cell">word</div>
+                <div id='cell18' class="cell">word</div>
+                <div id='cell19' class="cell">word</div>
+                <div id='cell20' class="cell">word</div>
+                <div id='cell21' class="cell">word</div>
+                <div id='cell22' class="cell">word</div>
+                <div id='cell23' class="cell">word</div>
+                <div id='cell24' class="cell">word</div>
+                <div id='cell25' class="cell">word</div>
+            </div>
+
+            <div id="game-toggle">
+                <button id="player">Player</button>
+                <button id="spymaster">Spymaster</button>
+                <button id="new-game">New Game</button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
