@@ -7,24 +7,25 @@ function writeEvent(state) {
     console.log(state);
     var gamestate = JSON.parse(state);
     assignCells(gamestate);
-    assignScore(gamestate);
-    assignTurn(gamestate);
+    // assignScore(gamestate);
+    // assignTurn(gamestate);
 };
 
 function assignCells(gamestate) {
     var cells = document.getElementsByClassName('cell');
-    for (x in cells) {
-        
+    var cellword = gamestate['cells'];
+    for (var i=0; i<25; i++) {
+        cells[i] = 
     }
 }
 
-function assignScore(gamestate) {
+// function assignScore(gamestate) {
 
-}
+// }
 
-function assignTurn(gamestate) {
+// function assignTurn(gamestate) {
 
-}
+// }
 
 function cellListeners() {
     for (var i=1; i<26; i++){
