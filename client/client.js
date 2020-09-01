@@ -13,7 +13,9 @@ function writeEvent(state) {
 
 function assignCells(gamestate) {
     var cells = document.getElementsByClassName('cell');
-    for 
+    for (x in cells) {
+        
+    }
 }
 
 function assignScore(gamestate) {
