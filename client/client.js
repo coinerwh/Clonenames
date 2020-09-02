@@ -1,5 +1,6 @@
+// const { userInfo } = require("os");
+
 const sock = io();
-// sock.on('message', writeEvent);
 
 var gameState = {};
 var playerType = 'player';
@@ -15,6 +16,7 @@ function writeEvent(state) {
     assignCells(gamestate);
     assignScore(gamestate);
     assignTurn(gamestate);
+    console.log(state);
     if (playerType == 'player') {
         playerDisplay();
     } else {
@@ -90,7 +92,7 @@ function spymasterDisplay() {
             } else if (cellword['cell'+(i+1)][1] == 'Red') {
                 cells[i].classList.add("red");
             } else {
-                // placeholder for assassin
+                cells[i].classList.add("assassin");
             }
         }
     }
@@ -113,7 +115,7 @@ function playerDisplay() {
             } else if (cellword['cell'+(i+1)][1] == 'Red') {
                 cells[i].classList.add("red");
             } else {
-                // placeholder for assassin
+                cells[i].classList.add("assassin");
             }
         }
     }

@@ -6,17 +6,9 @@ class CodenamesGame {
         this.winner = 'None';
         // blue index 0, red index 1
         this.points = [0, 0];
-
+        this.usedIndices = [];
+        this.cellCount = [1, 1, 0];
         this.cells = {}
-        this.generateCells();
-    }
-    // reset game
-    newGame() {
-        this.turn = 'Blue';
-        this.cellSelectionNum = 0;
-        this.winner = 'None';
-        this.points[0] = 0;
-        this.points[1] = 0;
         this.generateCells();
     }
 
@@ -30,16 +22,28 @@ class CodenamesGame {
     }
 
     generateWord(num) {
-        var index = Math.floor(Math.random() * 401); 
+        var index = Math.floor(Math.random() * 400);
+        while (index in this.usedIndices) {
+            index = Math.floor(Math.random() * 400);
+        }
+        this.usedIndices.push(index);
         this.cells['cell'+num][0] = wordList[index];
+        
     }
 
     generateTeam(num) {
-        var team = Math.floor(Math.random() * 2);
-        if (team == 0) {
+        var team = Math.floor(Math.random() * 3);
+        if (team == 0 && this.cellCount[0] <= 12) {
             this.cells['cell'+num][1] = 'Blue';
-        } else {
+            this.cellCount[0]++;
+        } else if (team == 1 && this.cellCount[1] <= 12) {
             this.cells['cell'+num][1] = 'Red';
+            this.cellCount[1]++;
+        } else if (team == 2 && this.cellCount[2] < 1) {
+            this.cells['cell'+num][1] = 'Assassin';
+            this.cellCount[2]++;
+        } else {
+            this.generateTeam(num);
         }
     }
 
@@ -90,6 +94,20 @@ class CodenamesGame {
         var obj = {'turn': this.turn, 'winner': this.winner, 'points': this.points, 'cells': this.cells};
         var state = JSON.stringify(obj);
         return state
+    }
+
+     // reset game
+     newGame() {
+        this.turn = 'Blue';
+        this.cellSelectionNum = 0;
+        this.winner = 'None';
+        this.points[0] = 0;
+        this.points[1] = 0;
+        this.usedIndices = [];
+        this.cellCount[0] = 1;
+        this.cellCount[1] = 1;
+        this.cellCount[2] = 0;
+        this.generateCells();
     }
 
 }
