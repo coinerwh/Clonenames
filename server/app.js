@@ -34,7 +34,7 @@ io.on('connection', function(sock){
 
     // player clicks game button
     sock.on('button', function(data) {
-        if (data = 'new-game') {
+        if (data == 'new-game') {
             console.log("New game started.");
             game.newGame();
         } else {

@@ -14,6 +14,7 @@ class CodenamesGame {
     newGame() {
         this.turn = 'Blue';
         this.cellSelectionNum = 0;
+        this.winner = 'None';
         this.points[0] = 0;
         this.points[1] = 0;
         this.generateCells();
@@ -45,6 +46,7 @@ class CodenamesGame {
     updateCell(cell) {
         this.cells[cell][2] = true;
         this.updateTurn();
+        this.updateScore(cell);
     }
 
     updateTurn() {
@@ -60,11 +62,26 @@ class CodenamesGame {
 
     }
 
+    updateScore(cell) {
+        var team = this.cells[cell][1];
+        if (team == 'Blue') {
+            this.points[0]++;
+            if (this.points[0] > 7) {
+                this.winner = 'Blue';
+            }
+        } else{
+            this.points[1]++;
+            if (this.points[1] > 7) {
+                this.winner = 'Red';
+            }
+        }
+    }
+
     endTurn() {
         if (this.turn == 'Blue') {
-            this.turn == 'Red';
+            this.turn = 'Red';
         } else {
-            this.turn == 'Blue';
+            this.turn = 'Blue';
         }
         this.cellSelectionNum == 0;
     }

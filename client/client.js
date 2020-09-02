@@ -3,6 +3,8 @@ const sock = io();
 
 var gameState = {};
 var playerType = 'player';
+var cells = document.getElementsByClassName('cell');
+var favicon = document.getElementById("favicon");
 
 sock.on('gamestate', writeEvent);
 
@@ -10,7 +12,6 @@ sock.on('gamestate', writeEvent);
 function writeEvent(state) {
     var gamestate = JSON.parse(state);
     gameState = gamestate;
-    console.log(gameState);
     assignCells(gamestate);
     assignScore(gamestate);
     assignTurn(gamestate);
@@ -19,10 +20,12 @@ function writeEvent(state) {
     } else {
         spymasterDisplay();
     }
+    if (gamestate['winner'] != 'None') {
+        spymasterDisplay();
+    }
 };
 
 function assignCells(gamestate) {
-    var cells = document.getElementsByClassName('cell');
     var cellword = gamestate['cells'];
     for (var i=0; i<25; i++) {
         cells[i].textContent = cellword['cell'+(i+1)][0];
@@ -30,9 +33,11 @@ function assignCells(gamestate) {
 }
 
 function assignScore(gamestate) {
-    var score = document.getElementById('score');
-    var points = gamestate['points']
-    score.textContent = points[0] + "-" + points[1];
+    var bluescore = document.getElementById('bluescore');
+    var redscore = document.getElementById('redscore');
+    var points = gamestate['points'];
+    bluescore.textContent = points[0];
+    redscore.textContent = points[1];
 }
 
 function assignTurn(gamestate) {
@@ -41,14 +46,33 @@ function assignTurn(gamestate) {
     var winner = gamestate['winner'];
     if (winner == 'None') {
         turnDiv.textContent = turn + "'s turn";
+        turnDiv.className = '';
+        if (turn == 'Blue') {
+            favicon.setAttribute('href','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAmSURBVHgB7cxBAQAABATBo5ls6ulEiPt47ASYqJ6VIWUiICD4Ehyi7wKv/xtOewAAAABJRU5ErkJggg==');
+            turnDiv.classList.add('blueturn');
+        } else {
+            favicon.setAttribute('href', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAmSURBVHgB7cwxAQAACMOwgaL5d4EiELGHoxGQGnsVaIUICAi+BAci2gJQFUhklQAAAABJRU5ErkJggg==');
+            turnDiv.classList.add('redturn');
+        }
     } else {
-        turnDiv.textContent = winner + " wins!";
+        setWinner(turnDiv, winner);
     }
 }
 
+function setWinner(turnDiv, winner) {
+    turnDiv.className = '';
+    turnDiv.textContent = winner + " wins!";
+    if (winner == 'Blue') {
+        favicon.setAttribute('href','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAmSURBVHgB7cxBAQAABATBo5ls6ulEiPt47ASYqJ6VIWUiICD4Ehyi7wKv/xtOewAAAABJRU5ErkJggg==');
+        turnDiv.classList.add('blueturn');
+    } else {
+        favicon.setAttribute('href', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAmSURBVHgB7cwxAQAACMOwgaL5d4EiELGHoxGQGnsVaIUICAi+BAci2gJQFUhklQAAAABJRU5ErkJggg==');
+        turnDiv.classList.add('redturn');
+    }
+}
+
+// set display for spymaster
 function spymasterDisplay() {
-    var cells = document.getElementsByClassName('cell');
-    // element.classList.add("my-class");
     var cellword = gameState['cells'];
     for (var i=0; i<25; i++) {
         if (cellword['cell'+(i+1)][1] == 'Blue') {
@@ -72,8 +96,27 @@ function spymasterDisplay() {
     }
 }
 
+// set display for player
 function playerDisplay() {
-    // displayer for player
+    var cellword = gameState['cells'];
+    for (var i=0; i<25; i++) {
+        cells[i].style.color = null;
+        cells[i].classList.remove('blue');
+        cells[i].classList.remove('red');
+        if (cellword['cell'+(i+1)][2] == false) {
+            cells[i].classList.add("hidden");
+        } else {
+            cells[i].classList.remove("hidden");
+            cells[i].style.color = null;
+            if (cellword['cell'+(i+1)][1] == 'Blue'){
+                cells[i].classList.add("blue");
+            } else if (cellword['cell'+(i+1)][1] == 'Red') {
+                cells[i].classList.add("red");
+            } else {
+                // placeholder for assassin
+            }
+        }
+    }
 }
 
 // Sets event listeners for game cards
@@ -118,4 +161,6 @@ function spyPlayerButtonListeners() {
 cellListeners();
 buttonListeners();
 spyPlayerButtonListeners();
+
+
 

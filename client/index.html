@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codenames</title>
+    <title>Clonenames</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
+    <link rel="shortcut icon" type="image/png" id="favicon">
 </head>
 <body>
     <div id="app">
         <div id="topbar">
             <h1>
-                <a href="index.html">codenames</a>
+                <a href="index.html">clonenames</a>
             </h1>
         </div>
         
         <div id="game">
             <div id="game-status">
                 <div id="score">
-                    7-7
+                    <span id=bluescore>7</span>-<span id=redscore>7</span> 
                 </div>
                 <div id="status">
                     blue's turn
@@ -57,8 +58,8 @@
             </div>
 
             <div id="game-toggle">
-                <button id="player">Player</button>
-                <button id="spymaster">Spymaster</button>
+                <button class="leftbuttons" id="player">Player</button>
+                <button class="leftbuttons" id="spymaster">Spymaster</button>
                 <button id="new-game">New Game</button>
             </div>
         </div>
