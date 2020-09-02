@@ -42,8 +42,8 @@ class CodenamesGame {
         }
     }
 
-    updateCell(index) {
-        this.cells[index] = this.turn;
+    updateCell(cell) {
+        this.cells[cell][2] = true;
         this.updateTurn();
     }
 

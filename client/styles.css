@@ -36,6 +36,21 @@ h1 {
     height: 500px;
 }
 
+.red {
+    background: #d13030;
+    color: #fff;
+}
+
+.blue {
+    background: #4183cc;
+    color: #fff;
+}
+
+.hidden {
+    cursor: pointer;
+    background: #e8e8e8;
+}
+
 .cell {
     display: flex;
     justify-content: center;
@@ -43,6 +58,4 @@ h1 {
     text-align: center;
     width: 19%;
     height: 18%;
-    background: #e8e8e8;
-    cursor: pointer;
 }
