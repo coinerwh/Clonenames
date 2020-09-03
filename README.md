@@ -9,9 +9,7 @@ Information about the original game and the rules found [here](https://en.wikipe
 A hosted version of the game is available at https://www.clonenamesgame.com
 
 
-
-![](https://github.com/coinerwh/Clonenames/blob/master/screenshot.png =250x250)
-<img src="https://github.com/coinerwh/Clonenames/blob/master/screenshot.png" width="1081" height="972" />
+<img src="https://github.com/coinerwh/Clonenames/blob/master/screenshot.png" width="647" height="583" />
 
 
 # Building
