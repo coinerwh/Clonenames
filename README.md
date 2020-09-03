@@ -10,7 +10,7 @@ A hosted version of the game is available at https://www.clonenamesgame.com
 
 
 
-![Image of Game](https://github.com/coinerwh/Clonenames/blob/master/screenshot.png)
+![Image of Game](https://github.com/coinerwh/Clonenames/blob/master/screenshot.png =1081x972))
 
 
 # Building
