@@ -119,3 +119,10 @@ button {
     width: 19%;
     height: 18%;
 }
+
+#rules {
+    color: #757575;
+    margin-top: 2em;
+    align-items: center;
+    text-align: center;
+}
