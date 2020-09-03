@@ -8,5 +8,7 @@ Information about the original game and the rules found [here](https://en.wikipe
 
 A hosted version of the game is available at https://www.clonenamesgame.com
 
+https://github.com/coinerwh/Clonenames/blob/master/screenshot.png
+
 
 
