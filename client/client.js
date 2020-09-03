@@ -77,10 +77,15 @@ function setWinner(turnDiv, winner) {
 function spymasterDisplay() {
     var cellword = gameState['cells'];
     for (var i=0; i<25; i++) {
+        cells[i].classList.remove('blue');
+        cells[i].classList.remove('red');
+        cells[i].classList.remove('assassin');
         if (cellword['cell'+(i+1)][1] == 'Blue') {
             cells[i].style.color = '#4183cc';
         } else if (cellword['cell'+(i+1)][1] == 'Red') {
             cells[i].style.color = '#d13030';
+        } else {
+            cells[i].style.color = 'black';
         }
         if (cellword['cell'+(i+1)][2] == false) {
             cells[i].classList.add("hidden");
@@ -105,6 +110,7 @@ function playerDisplay() {
         cells[i].style.color = null;
         cells[i].classList.remove('blue');
         cells[i].classList.remove('red');
+        cells[i].classList.remove('assassin');
         if (cellword['cell'+(i+1)][2] == false) {
             cells[i].classList.add("hidden");
         } else {
@@ -159,6 +165,17 @@ function spyPlayerButtonListeners() {
         spymasterDisplay();
     });
 }
+
+function zoomOutMobile() {
+    var viewport = document.querySelector('meta[name="viewport"]');
+  
+    if ( viewport ) {
+      viewport.content = "initial-scale=0.1";
+      viewport.content = "width=1200";
+    }
+  }
+  
+zoomOutMobile();
 
 cellListeners();
 buttonListeners();

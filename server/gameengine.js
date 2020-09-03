@@ -49,8 +49,8 @@ class CodenamesGame {
 
     updateCell(cell) {
         this.cells[cell][2] = true;
-        this.updateTurn();
         this.updateScore(cell);
+        this.updateTurn();
     }
 
     updateTurn() {
@@ -73,9 +73,15 @@ class CodenamesGame {
             if (this.points[0] > 7) {
                 this.winner = 'Blue';
             }
-        } else{
+        } else if (team == 'Red') {
             this.points[1]++;
             if (this.points[1] > 7) {
+                this.winner = 'Red';
+            }
+        } else {
+            if (this.turn == 'Red') {
+                this.winner = 'Blue';
+            } else {
                 this.winner = 'Red';
             }
         }
