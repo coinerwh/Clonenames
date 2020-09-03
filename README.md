@@ -16,14 +16,14 @@ A hosted version of the game is available at https://www.clonenamesgame.com
 # Building
 
 From the root directory, install the node modules
-'''
+```
 npm install
-'''
+```
 
 To start the app
-'''
+```
 node app.js
-'''
+```
 
 # Future additions
 
