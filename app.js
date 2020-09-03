@@ -3,6 +3,8 @@ const express = require('express');
 const socketio = require('socket.io');
 const path = require('path');
 
+var port = process.env.PORT || 8000;
+
 const CodenamesGame = require('./gameengine');
 
 const app = express();
@@ -52,7 +54,7 @@ server.on('error', function(err){
 });
 
 
-server.listen(3000, function(){
+server.listen(port, function(){
     console.log("Codenames server started on 3000");
 });
 
