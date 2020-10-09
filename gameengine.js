@@ -26,6 +26,7 @@ class CodenamesGame {
         while (index in this.usedIndices) {
             index = Math.floor(Math.random() * 400);
         }
+        console.log(this.usedIndices);
         this.usedIndices.push(index);
         this.cells['cell'+num][0] = wordList[index];
         
