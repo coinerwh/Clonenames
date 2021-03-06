@@ -13,7 +13,8 @@ class CodenamesGame {
     }
 
     generateCells() {
-        let assIdx = Math.floor(Math.random() * 26);
+        let assIdx = Math.floor(Math.random() * 25) + 1;
+        console.log(assIdx);
         for (var i=1; i<26; i++) {
             this.cells['cell'+i] = []
             this.generateWord(i);
