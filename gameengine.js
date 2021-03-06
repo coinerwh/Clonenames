@@ -13,10 +13,12 @@ class CodenamesGame {
     }
 
     generateCells() {
+        let assIdx = Math.floor(Math.random() * 26);
         for (var i=1; i<26; i++) {
             this.cells['cell'+i] = []
             this.generateWord(i);
-            this.generateTeam(i);
+            let team = Math.floor(Math.random() * 2);
+            this.generateTeam(i, team, assIdx);
             this.cells['cell'+i].push(false);
         }
     }
@@ -32,20 +34,24 @@ class CodenamesGame {
         
     }
 
-    generateTeam(num) {
-        var team = Math.floor(Math.random() * 3);
-        if (team == 0 && this.cellCount[0] <= 12) {
+    generateTeam(num, team, assIdx) {
+        if (assIdx == num && this.cellCount[2] < 1) {
+            this.cells['cell'+num][1] = 'Assassin';
+            this.cellCount[2]++;
+        } else if (team == 0 && this.cellCount[0] <= 12) {
             this.cells['cell'+num][1] = 'Blue';
             this.cellCount[0]++;
         } else if (team == 1 && this.cellCount[1] <= 12) {
             this.cells['cell'+num][1] = 'Red';
             this.cellCount[1]++;
-        } else if (team == 2 && this.cellCount[2] < 1) {
-            this.cells['cell'+num][1] = 'Assassin';
-            this.cellCount[2]++;
+        } else if (team == 0 && this.cellCount[0] > 12) {
+            this.cells['cell'+num][1] = 'Red';
+            this.cellCount[1]++;
         } else {
-            this.generateTeam(num);
-        }
+            this.cells['cell'+num][1] = 'Blue';
+            this.cellCount[0]++;
+        } 
+
     }
 
     updateCell(cell) {
