@@ -67,7 +67,7 @@ button {
 }
 
 #game {
-    width: 700px;
+    width: 800px;
     height: fit-content;
     margin: 0 auto;
 }
@@ -86,7 +86,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 500px;
+    height: 600px;
 }
 
 .red {
