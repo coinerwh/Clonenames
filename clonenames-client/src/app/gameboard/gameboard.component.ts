@@ -27,6 +27,7 @@ export class GameboardComponent implements OnInit {
   private socket?: WebsocketService;
 
   constructor(socket: WebsocketService) {
+    this.socket = socket;
    }
 
   ngOnInit(): void {
