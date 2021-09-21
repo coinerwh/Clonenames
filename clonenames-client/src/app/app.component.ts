@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
-  template: '<h1>hello</h1>',
+  template: '<app-gameboard>',
 })
 export class AppComponent {
   title = 'clonenames-client';

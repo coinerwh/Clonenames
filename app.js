@@ -9,7 +9,7 @@ const CodenamesGame = require('./gameengine');
 
 const app = express();
 
-const clientPath = path.join(__dirname, '/client');
+const clientPath = path.join(__dirname, '/clonenames-client/dist/clonenames-client/');
 console.log('Serving static from ',  clientPath);
 
 app.use(express.static(clientPath));
@@ -23,7 +23,7 @@ var game = new CodenamesGame();
 
 // initial connection
 io.on('connection', function(sock){
-    console.log("Someone connected.")
+    console.log("Someone connected.");
     var state = game.gameState();
     sock.emit('gamestate', state);
 
@@ -44,7 +44,7 @@ io.on('connection', function(sock){
             game.endTurn();
         }
         var state = game.gameState();
-        io.sockets.emit('gamestate', state);
+        io.sockets.emit('gameState', state);
     });
 });
 
@@ -55,7 +55,7 @@ server.on('error', function(err){
 
 
 server.listen(port, function(){
-    console.log("Codenames server started on 3000");
+    console.log(`Codenames server started on ${port}`);
 });
 
 
