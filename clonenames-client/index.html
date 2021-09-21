@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clonenames</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/png" id="favicon">
+</head>
+<body>
+    <div id="app">
+        <div id="topbar">
+            <h1>
+                <a href="index.html">clonenames</a>
+            </h1>
+        </div>
+        
+        <div id="game">
+            <div id="game-status">
+                <div id="score">
+                    <span id=bluescore>7</span><span id="dash">-</span><span id=redscore>7</span> 
+                </div>
+                <div id="status">
+                    blue's turn
+                </div>
+                <div id="endturn">
+                    <button id="turnbutton">End Turn</button>
+                </div>
+            </div>
+
+            <div class="board">
+                <div id='cell1' class="cell hidden"></div>
+                <div id='cell2' class="cell hidden"></div>
+                <div id='cell3' class="cell hidden"></div>
+                <div id='cell4' class="cell hidden"></div>
+                <div id='cell5' class="cell hidden"></div>
+                <div id='cell6' class="cell hidden"></div>
+                <div id='cell7' class="cell hidden"></div>
+                <div id='cell8' class="cell hidden"></div>
+                <div id='cell9' class="cell hidden"></div>
+                <div id='cell10' class="cell hidden"></div>
+                <div id='cell11' class="cell hidden"></div>
+                <div id='cell12' class="cell hidden"></div>
+                <div id='cell13' class="cell hidden"></div>
+                <div id='cell14' class="cell hidden"></div>
+                <div id='cell15' class="cell hidden"></div>
+                <div id='cell16' class="cell hidden"></div>
+                <div id='cell17' class="cell hidden"></div>
+                <div id='cell18' class="cell hidden"></div>
+                <div id='cell19' class="cell hidden"></div>
+                <div id='cell20' class="cell hidden"></div>
+                <div id='cell21' class="cell hidden"></div>
+                <div id='cell22' class="cell hidden"></div>
+                <div id='cell23' class="cell hidden"></div>
+                <div id='cell24' class="cell hidden"></div>
+                <div id='cell25' class="cell hidden"></div>
+            </div>
+
+            <div id="game-toggle">
+                <button class="leftbuttons" id="player">Player</button>
+                <button class="leftbuttons" id="spymaster">Spymaster</button>
+                <button id="new-game">New Game</button>
+            </div>
+        </div>
+    </div>
+    <div id="rules"><a href="https://en.wikipedia.org/wiki/Codenames_(board_game)#Rules" target="_blank">rules</a></div>
+    <div id="github"><a href="https://github.com/coinerwh/Clonenames" target="_blank"><i class="fa fa-github fa_custom fa-4x"></i></i></a></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>

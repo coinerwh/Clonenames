@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 export interface GameState {
   turn: string;
@@ -15,11 +16,9 @@ export interface GameState {
   providedIn: 'root'
 })
 export class WebsocketService {
-  public sock: Socket;
+  public observable?: Observable<unknown>;
 
-  constructor(private socket: Socket) {
-    this.sock = socket;
-  }
+  constructor(private socket: Socket) {}
 
   sendCellClick(cell: string) {
     this.socket.emit('cellClick', cell);
@@ -30,8 +29,9 @@ export class WebsocketService {
   }
 
   getGameState() {
-    let gameState = this.socket.fromEvent('gameState').pipe(map((data) => data));
-    console.log(gameState);
+    return this.socket
+        .fromEvent<GameState>('gamestate').pipe(
+        map(data => data));
   }
 }
 

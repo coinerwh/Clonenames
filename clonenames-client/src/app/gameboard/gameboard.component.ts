@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { WebsocketService } from '../websocket.service';
+import { Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
+import { GameState, WebsocketService } from '../websocket.service';
 
 @Component({
   selector: 'app-gameboard',
@@ -24,14 +26,15 @@ import { WebsocketService } from '../websocket.service';
   `,
 })
 export class GameboardComponent implements OnInit {
-  private socket?: WebsocketService;
+  private gameState?: GameState;
 
   constructor(socket: WebsocketService) {
-    this.socket = socket;
+    socket.getGameState().subscribe(state => {
+      this.gameState = state;
+      console.log(state);
+    });
    }
 
   ngOnInit(): void {
-    if (this.socket) {this.socket.sock.on('gameState', this.socket.getGameState);}
   }
-
 }
