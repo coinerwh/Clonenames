@@ -26,12 +26,11 @@ import { GameState, WebsocketService } from '../websocket.service';
   `,
 })
 export class GameboardComponent implements OnInit {
-  private gameState?: GameState;
+  gameState?: GameState;
 
   constructor(socket: WebsocketService) {
     socket.getGameState().subscribe(state => {
       this.gameState = state;
-      console.log(state);
     });
    }
 
