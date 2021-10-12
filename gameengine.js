@@ -25,7 +25,7 @@ class CodenamesGame {
     }
 
     generateWord(num) {
-        var index = Math.floor(Math.random() * 400);
+        let index = Math.floor(Math.random() * 400);
         while (index in this.usedIndices) {
             index = Math.floor(Math.random() * 400);
         }
@@ -75,7 +75,7 @@ class CodenamesGame {
     }
 
     updateScore(cell) {
-        var team = this.cells[cell][1];
+        let team = this.cells[cell][1];
         if (team == 'Blue') {
             this.points[0]++;
             if (this.points[0] > 7) {
@@ -105,8 +105,8 @@ class CodenamesGame {
     }
 
     gameState() {
-        var obj = {'turn': this.turn, 'winner': this.winner, 'points': this.points, 'cells': this.cells};
-        var state = JSON.stringify(obj);
+        let obj = {'turn': this.turn, 'winner': this.winner, 'points': this.points, 'cells': this.cells};
+        let state = JSON.stringify(obj);
         return state
     }
 

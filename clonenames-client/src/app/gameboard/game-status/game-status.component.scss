@@ -1,0 +1,30 @@
+#game-status {
+    margin: 1em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#score {
+    text-align: left;
+    width: 4.9em;
+}
+
+#dash {
+    color: #757575;
+}
+
+#bluescore {
+    color: #4183cc;
+}
+
+#redscore {
+    color: #d13030;
+}
+
+.blueturn {
+    color: #4183cc;
+}
+
+.redturn {
+    color: #d13030;
+}

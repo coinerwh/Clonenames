@@ -1,0 +1,37 @@
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 600px;
+}
+
+.red {
+    background: #d13030;
+    color: #fff;
+}
+
+.blue {
+    background: #4183cc;
+    color: #fff;
+}
+
+.assassin {
+    color: #fff;
+    background: black;
+}
+
+.hidden {
+    color: gray;
+    cursor: pointer;
+    background: #393433;
+}
+
+.cell {
+    font-size: .85em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 19%;
+    height: 18%;
+}
